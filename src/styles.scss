@@ -1,0 +1,38 @@
+$unmemoed: #afdfff;
+$memoed: #bfffaf;
+
+body {
+  background-color: #333;
+  color: #ccc;
+  font-size: 16px;
+  .App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  button {
+    margin-top: 5px;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .Parent {
+    & > button {
+      background-color: $unmemoed;
+    }
+  }
+  .MemoedParent {
+    & > button {
+      background-color: $memoed;
+    }
+  }
+  .Child {
+    & > button {
+      background-color: $unmemoed;
+    }
+  }
+  .MemoedChild {
+    & > button {
+      background-color: $memoed;
+    }
+  }
+}
