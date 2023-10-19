@@ -13,10 +13,15 @@ export function Parent({
   console.log(`${label} render`);
 
   const [state, setState] = useState(0);
-  const [childState, setChildState] = useState(0);
+  const [childState, setChildState] = useState({ number: 0 });
+  // const [childState, setChildState] = useState(0);
 
   const handleChildClick = useCallback((): void => {
-    setChildState((prev) => prev + 1);
+    setChildState((prev) => {
+      // return { number: prev.number + 1 };
+      return { number: prev.number };
+      // return prev + 1;
+    });
   }, [setChildState]);
 
   function handleClick(): void {
@@ -36,7 +41,8 @@ export function Parent({
       <div>
         {label} state: {state}
       </div>
-      <button onClick={handleClick}>{label} state +1</button>
+      {/* <button onClick={handleClick}>{label} state +1</button> */}
+      <button onClick={handleChildClick}>{label} state +1</button>
       <Child
         state={useMemo(() => childState, [childState])}
         label="Child"

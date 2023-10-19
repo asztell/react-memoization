@@ -7,9 +7,11 @@ export const Child = function Child({
   onClick
 }: {
   label?: string;
-  state: number;
+  state: { number: number };
+  // state: number;
   onClick: React.MouseEventHandler;
 }): JSX.Element {
+  console.log("childStateFromParent", childStateFromParent);
   const [state, setState] = useState(0);
   const { updateStats } = useStats();
   // console.log("updateStats", updateStats);
@@ -30,7 +32,8 @@ export const Child = function Child({
       <br />
       <h1>{label}</h1>
       <div>
-        {label} state from parent: {childStateFromParent}
+        {label} state from parent: {childStateFromParent.number}
+        {/* {label} state from parent: {childStateFromParent} */}
       </div>
       {/* <button onClick={onClick}>Child state +1</button> */}
       <button onClick={onStateFromParentClick}>
