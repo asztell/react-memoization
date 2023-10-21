@@ -12,7 +12,11 @@
     "start": {
       "name": "start",
       "command": "yarn start",
-      "runAtStart": true
+      "runAtStart": true,
+      "preview": {
+        "port": 3000,
+        "prLink": "direct"
+      }
     },
     "build": {
       "name": "build",
